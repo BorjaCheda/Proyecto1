@@ -15,8 +15,9 @@ import java.util.List;
 public class ClientsController {
     @Autowired
     ClientRepository clientsRepository;
-@GetMapping("/formulario")
-    public String getForm(Model model){
+
+    @GetMapping("/formulario")
+    public String getForm(Model model) {
         /*
         acciones de controlador
          */
@@ -29,12 +30,15 @@ public class ClientsController {
         return "formBase.html";
     }
 
-    @PostMapping ("/postForm")
-    public String postForm (@ModelAttribute("cliente") Clients clients){
+    @PostMapping("/postForm")
+    public String postForm(@ModelAttribute("cliente") Clients clients, Model model) {
 
         clientsRepository.save(clients);
 
-        return "formBase.html";
-    }
+        List<Clients> listaclientes = clientsRepository.findAll();
+        model.addAttribute("listaempleados", listaclientes);
 
+
+        return "listEmployees.html";
+    }
 }
