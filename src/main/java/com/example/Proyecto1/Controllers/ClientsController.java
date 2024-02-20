@@ -40,7 +40,6 @@ public class ClientsController {
         List<Clients> listaclientes = clientsRepository.findAll();
         model.addAttribute("listaempleados", listaclientes);
 
-
         return "listEmployees.html";
     }
 }

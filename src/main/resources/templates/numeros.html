@@ -7,12 +7,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+
     <title>LISTA NUMEROS</title>
 
 </head>
 <body>
 
 <div class="container-fluid d-flex justify-content-center align-items-center text-center row">
+
+    <table class="table table-striped table2 col-12">
+        <thead>
+        <tr>
+            <th scope="col">Numero Producido</th>
+            <th scope="col">Eliminar numero</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <a class="col-12">
+        <button class="btn btn-danger" onclick="insertanumero()">Insertar Numero JavaScript</button>
+    </a>
+    <p id="lista_javaScript"></p>
+    <p id="lista_array"></p>
+    <p id="eliminar"></p>
+
 
     <table class="table table-striped col-12">
         <thead>
@@ -31,6 +51,8 @@
     <a class="col-12" th:href="@{/nuevoNumero}">
         <button> Insertar numero</button>
     </a>
+    <button onclick="insertanumero()">Insertar Numero JavaScript</button>
+    <p id="prueba"></p>
 </div>
 <p>La lista tiene <span th:text="${tamanoLista}"></span> números</p>
 
@@ -38,6 +60,8 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+<script src="script.js"></script>
+<script>
+</script>
 </body>
 </html>
