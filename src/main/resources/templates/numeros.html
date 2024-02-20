@@ -34,6 +34,7 @@
     <p id="eliminar"></p>
 
 
+    <!--
     <table class="table table-striped col-12">
         <thead>
         <tr>
@@ -41,20 +42,21 @@
             <th scope="col">Eliminar numero</th>
         </tr>
         </thead>
-        <tbody>
+
         <tr th:each="numero : ${listaNumeros}">
             <td scope="col" th:text="${numero}"></td>
             <td scope="col"><a th:href="@{/numeroEliminado/{id}(id=${numero})}">Eliminar numero</a></td>
         </tr>
-        </tbody>
+
     </table>
     <a class="col-12" th:href="@{/nuevoNumero}">
-        <button> Insertar numero</button>
+        <button class="btn btn-primary">Insertar numero Spring</button><br>
     </a>
-    <button onclick="insertanumero()">Insertar Numero JavaScript</button>
-    <p id="prueba"></p>
+    <p>La lista tiene en SPRING <span th:text="${tamanoLista}"></span>números</p>
+-->
+
 </div>
-<p>La lista tiene <span th:text="${tamanoLista}"></span> números</p>
+
 
 <script crossorigin="anonymous"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

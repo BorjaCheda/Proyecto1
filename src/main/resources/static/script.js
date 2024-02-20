@@ -1,4 +1,5 @@
 var total = 0;
+let lista_numeros = [];
 
 function insertanumero(){
 
@@ -9,31 +10,43 @@ function insertanumero(){
             var celda_numero = document.createElement("td");
             var celda_eliminar_numero = document.createElement("td");
 
-            var lista_numeros = [];
             lista_numeros.push(numeroAleatorio);
             celda_numero.textContent = numeroAleatorio;
 
             var link_eliminar_numero = document.createElement("button");
             link_eliminar_numero.textContent = "Eliminar número";
-            link_eliminar_numero.addEventListener("click", function() {
-
-                for (let i=0; i < lista_numeros.length; i++){
-                    document.getElementById("eliminar").innerHTML = "Has clicado en eliminar el número " + lista_numeros[i];
-                }    
-
-            });
-
             celda_eliminar_numero.appendChild(link_eliminar_numero);
-    
+
             // Agregar las celdas a la fila
             nuevafila.appendChild(celda_numero);
             nuevafila.appendChild(celda_eliminar_numero);
-    
+
             // Agregar la fila a la tabla
             document.querySelector("table tbody").appendChild(nuevafila);
 
-            total = total + 1;
+            link_eliminar_numero.addEventListener("click", function() {
 
-            document.getElementById("lista_javaScript").innerHTML = "La lista en Javascript tiene " + total + " numeros.";     
-            
+                var filaAEliminar = this.parentNode.parentNode;
+                var numeroAEliminar = parseInt(this.parentNode.previousElementSibling.textContent);
+                var indiceAEliminar = lista_numeros.indexOf(numeroAEliminar);
+                lista_numeros.splice(indiceAEliminar, 1);
+                filaAEliminar.remove();
+
+                document.getElementById("lista_array").innerHTML = "";
+                for (let i=0; i < lista_numeros.length; i++){
+                    document.getElementById("lista_array").innerHTML += lista_numeros[i] + " ";
+                }
+                document.getElementById("lista_javaScript").innerHTML = "La lista en Javascript tiene ahora " + (lista_numeros.length) + " numeros.";
+
+
+            });
+
+            document.getElementById("lista_array").innerHTML = "";
+
+            for (let i=0; i < lista_numeros.length; i++){
+                document.getElementById("lista_array").innerHTML += lista_numeros[i] + " ";
+            }
+
+            document.getElementById("lista_javaScript").innerHTML = "La lista en Javascript tiene " + (lista_numeros.length) + " numeros.";
+
         }
