@@ -49,4 +49,26 @@ function insertanumero(){
 
             document.getElementById("lista_javaScript").innerHTML = "La lista en Javascript tiene " + (lista_numeros.length) + " numeros.";
 
+//$.ajax({
+//type:"POST",
+//url: "addJsNumber",
+//data:{"numero":numeroAleatorio}
+//})
+//param={numero:numeroAleatorio,numero2:"30"};
+//$.post("addJsNumber",param,function(response){
+//}).fail(function(){
+//});
+
+myMap={};
+myMap["numero"]=numeroAleatorio;
+myMap["numero2"]=30;
+$.ajax({
+    url : '/addJsNumber',
+    data : JSON.stringify(myMap),
+    type : 'POST',
+    contentType:"application/json",
+    success : function(json) {
+        var CC = 8;
+    }
+});
         }

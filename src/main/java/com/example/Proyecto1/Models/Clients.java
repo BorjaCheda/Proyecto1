@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.Generated;
 
 @Entity
-@Data
+@Data // Con esto ya creamos los getters, setters, toString...de cada atributo.
 @Table
 public class Clients {
 
