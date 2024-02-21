@@ -1,6 +1,22 @@
 var total = 0;
 let lista_numeros = [];
 
+function eliminar(event){
+
+
+             var filaAEliminar = event.target.parentNode.parentNode;
+             var numeroAEliminar = parseInt(event.target.parentNode.previousElementSibling.textContent);
+             var indiceAEliminar = lista_numeros.indexOf(numeroAEliminar);
+             lista_numeros.splice(indiceAEliminar, 1);
+             filaAEliminar.remove();
+
+             document.getElementById("lista_array").innerHTML = "";
+             for (let i=0; i < lista_numeros.length; i++){
+                 document.getElementById("lista_array").innerHTML += lista_numeros[i] + " ";
+             }
+             document.getElementById("lista_javaScript").innerHTML = "La lista en Javascript tiene ahora " + (lista_numeros.length) + " numeros.";
+           }
+
 function insertanumero(){
 
             var numeroAleatorio = Math.floor(Math.random() * 100) + 1;
@@ -24,22 +40,7 @@ function insertanumero(){
             // Agregar la fila a la tabla
             document.querySelector("table tbody").appendChild(nuevafila);
 
-            link_eliminar_numero.addEventListener("click", function() {
-
-                var filaAEliminar = this.parentNode.parentNode;
-                var numeroAEliminar = parseInt(this.parentNode.previousElementSibling.textContent);
-                var indiceAEliminar = lista_numeros.indexOf(numeroAEliminar);
-                lista_numeros.splice(indiceAEliminar, 1);
-                filaAEliminar.remove();
-
-                document.getElementById("lista_array").innerHTML = "";
-                for (let i=0; i < lista_numeros.length; i++){
-                    document.getElementById("lista_array").innerHTML += lista_numeros[i] + " ";
-                }
-                document.getElementById("lista_javaScript").innerHTML = "La lista en Javascript tiene ahora " + (lista_numeros.length) + " numeros.";
-
-
-            });
+            link_eliminar_numero.addEventListener("click", eliminar);
 
             document.getElementById("lista_array").innerHTML = "";
 
@@ -48,16 +49,6 @@ function insertanumero(){
             }
 
             document.getElementById("lista_javaScript").innerHTML = "La lista en Javascript tiene " + (lista_numeros.length) + " numeros.";
-
-//$.ajax({
-//type:"POST",
-//url: "addJsNumber",
-//data:{"numero":numeroAleatorio}
-//})
-//param={numero:numeroAleatorio,numero2:"30"};
-//$.post("addJsNumber",param,function(response){
-//}).fail(function(){
-//});
 
 myMap={};
 myMap["numero"]=numeroAleatorio;
@@ -72,3 +63,4 @@ $.ajax({
     }
 });
         }
+
